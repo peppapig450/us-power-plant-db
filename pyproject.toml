@@ -8,7 +8,7 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "pandas[csv,performance] (>=2.2.3,<3.0.0)",
+    "pandas[excel,performance] (>=2.2.3,<3.0.0)",
     "requests (>=2.32.3,<3.0.0)",
 ]
 
@@ -16,3 +16,6 @@ dependencies = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
