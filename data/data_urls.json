@@ -1,0 +1,10 @@
+{
+  "ei860": {
+    "url": "https://www.eia.gov/electricity/data/eia860/xls/eia8602023.zip",
+    "filename": "eia860_data.zip"
+  },
+  "egrid": {
+    "url": "https://www.epa.gov/system/files/documents/2025-01/egrid2023_data_rev1.xlsx",
+    "filename": "egrid_data.xlsx"
+  }
+}
