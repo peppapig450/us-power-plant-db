@@ -1,5 +1,5 @@
+from dataclasses import dataclass
 from enum import StrEnum
-from typing import NamedTuple
 
 
 class Operation(StrEnum):
@@ -29,15 +29,18 @@ class Operation(StrEnum):
 type ColumnName = str
 
 
-class ColumnFilter(NamedTuple):
+@dataclass(frozen=True)
+class ColumnFilter:
     """Defines a filter configuration for DataFrame column operations.
 
-    A NamedTuple that combines an operation (keep/drop) with a list of column names,
+    A dataclass that combines an operation (keep/drop) with a list of column names,
     providing a structured way to specify column filtering operations on DataFrames.
 
     Attributes:
         operation: An Operation enum specifying whether to keep or drop columns.
         columns: A list of column names (strings) to which the operation applies.
+        lookup_table_mappings: A list of tuples, where each tuple contains two strings
+            representing (key_column, value_column) pairs for lookup table operations.
 
     Examples:
         >>> filter = ColumnFilter(Operation.KEEP, ["name", "age", "salary"])
@@ -49,3 +52,4 @@ class ColumnFilter(NamedTuple):
 
     operation: Operation
     columns: list[ColumnName]
+    lookup_table_mappings: list[tuple[str, str]]  # List of (key_column, value_column)
