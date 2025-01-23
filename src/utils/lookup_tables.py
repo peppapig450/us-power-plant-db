@@ -65,7 +65,7 @@ def load_lookup_table(
 
 def generate_lookup_tables(
     df: pd.DataFrame,
-    lookup_table_mappings: list[tuple[str, str]],
+    lookup_table_mappings: list[tuple[str, str]] | None,
     mappings_dir: str = "data/mappings",
 ) -> None:
     """
@@ -76,6 +76,9 @@ def generate_lookup_tables(
         lookup_table_mappings: A list of (key_column, value_column) tuples for lookup tables.
         mappings_dir: The directory where lookup tables should be saved.
     """
+    if lookup_table_mappings is None:
+        return # Early exit if no lookup table to create
+    
     mappings_path = Path(mappings_dir)
 
     for key_column, value_column in lookup_table_mappings:

@@ -52,4 +52,4 @@ class ColumnFilter:
 
     operation: Operation
     columns: list[ColumnName]
-    lookup_table_mappings: list[tuple[str, str]]  # List of (key_column, value_column)
+    lookup_table_mappings: list[tuple[str, str]] | None = None  # List of (key_column, value_column)
