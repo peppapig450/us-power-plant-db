@@ -22,6 +22,7 @@ EIA860_COLUMN_FILTERS = {
             "Plant Name",
             "Balancing Authority Name",
             "Sector Name",
+            "Pipeline Notes"
             "FERC Cogeneration Status",
             "FERC Cogeneration Docket Number",
             "FERC Small Power Producer Status",
@@ -37,6 +38,19 @@ EIA860_COLUMN_FILTERS = {
             ("Transmission or Distribution System Owner ID", "Transmission or Distribution System Owner")
         ],
     ),
+    # Not sure how to handle Generator ID as there are duplicates
+    "3_1_Generator_Y2023.xlsx": ColumnFilter(
+        Operation.DROP,
+        [
+            "Utility Name",
+            "Plant Name",
+            "Unit Code",
+            "Ownership",
+            'RTO/ISO LMP Node Designation',
+            'RTO/ISO Location Designation for Reporting Wholesale Sales Data to FERC',
+        ],
+        
+    )
 }
 
 EIA860_ZIP_FILE = "data/raw/eia860_data.zip"
